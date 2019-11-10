@@ -1,4 +1,6 @@
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -20,7 +22,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'React Quiz App',
+            template: './src/index.html'
+        })
     ],
     devServer: {
         contentBase: './dist',
