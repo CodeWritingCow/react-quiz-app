@@ -1,3 +1,5 @@
+import React from 'react';
+
 class App extends React.Component {
 	constructor(props) {
   	super(props);
@@ -175,4 +177,5 @@ let mockData = [
   {question: 'How many hours do your spend in the sun each day?', answers:["Less than 1 hr", "1-2 hr", "2-4 hr", "More than 4 hr"]}
 ];
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+// ReactDOM.render(<App/>, document.getElementById('app'));
+export default App;
