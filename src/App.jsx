@@ -5,10 +5,10 @@ import SuccessStage from './components/SuccessStage.jsx';
 import mockData from './mockData';
 
 class App extends React.Component {
-	constructor(props) {
-  	super(props);
+  constructor(props) {
+    super(props);
     this.state = {
-    	stage: 'intro',
+      stage: 'intro',
       questions: mockData,
       submittedAnswers: [],
       selectedAnswer: '',
@@ -22,48 +22,48 @@ class App extends React.Component {
   }
   
   handleClick(stage) {
-  	this.setState({stage: stage});
+    this.setState({stage: stage});
     if(stage === 'intro') {
-    	this.setState({submittedAnswers:[], currentQuestionNumber: 0})
+      this.setState({submittedAnswers:[], currentQuestionNumber: 0})
     };
   }
 
   handleChange(e) {
-  	this.setState({selectedAnswer: e.target.value});
+    this.setState({selectedAnswer: e.target.value});
     if(this.state.isSubmitButtonDisabled) {
       this.setState({isSubmitButtonDisabled: false});
     }
   }
 
   handleSubmit(e) {
-  	this.setState(state => {
-    	return {submittedAnswers: state.submittedAnswers.concat(state.selectedAnswer), isSubmitButtonDisabled: true}
+    this.setState(state => {
+      return {submittedAnswers: state.submittedAnswers.concat(state.selectedAnswer), isSubmitButtonDisabled: true}
     });
-    
+
     if(this.state.currentQuestionNumber === this.state.questions.length - 1) {
       this.setState({stage: 'success'});
     } else {
-    	this.setState({currentQuestionNumber: this.state.currentQuestionNumber + 1});
+      this.setState({currentQuestionNumber: this.state.currentQuestionNumber + 1});
     }
     e.preventDefault();
   }
 
   loadQuestion() {
-  	return this.state.questions[this.state.currentQuestionNumber];
+    return this.state.questions[this.state.currentQuestionNumber];
   }
 
   render() {
-  	let stage;
+    let stage;
     if(this.state.stage === 'intro') {
-    	stage = <IntroStage handleClick={this.handleClick}/>;
+      stage = <IntroStage handleClick={this.handleClick}/>;
     }
     if(this.state.stage === 'success') {
-    	stage = <SuccessStage handleClick={this.handleClick}
+      stage = <SuccessStage handleClick={this.handleClick}
         submittedAnswers={this.state.submittedAnswers}
         questions={this.state.questions.map((question) => question.question)}/>;
     }
     if(this.state.stage === 'quiz') {
-    	stage = <QuizStage handleClick={this.handleClick}
+      stage = <QuizStage handleClick={this.handleClick}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         loadQuestion={this.loadQuestion}
@@ -71,10 +71,10 @@ class App extends React.Component {
         isSubmitButtonDisabled={this.state.isSubmitButtonDisabled}/>;
     }
   
-  	return(
-    	<div className="text-center">
+    return(
+      <div className="text-center">
         {stage}
-    	</div>
+      </div>
     );
   }
 }

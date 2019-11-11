@@ -5,8 +5,8 @@ import QuizForm from './QuizForm.jsx';
 const QuizStage = (props) => {
   let {question, answers} = props.loadQuestion();
 
-	return(
-  	<div>
+  return(
+    <div>
       <div className="jumbotron">
         <QuizQuestion text={question}/>
         <QuizForm handleChange={props.handleChange}
@@ -24,7 +24,7 @@ const QuizStage = (props) => {
         onClick={() => props.handleClick('success')}>
         QUIT
       </button>
-  	</div>
+    </div>
   );
 }
 

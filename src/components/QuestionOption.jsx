@@ -1,8 +1,8 @@
 import React from 'react';
 
 const QuestionOption = (props) => {
-	return(
-  	<div className="custom-control custom-radio">
+  return(
+    <div className="custom-control custom-radio">
       <input type="radio"
              id={props.value}
              name="customRadio"

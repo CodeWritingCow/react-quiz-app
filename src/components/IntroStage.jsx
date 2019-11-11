@@ -1,8 +1,8 @@
 import React from 'react';
 
 const IntroStage = (props) => {
-	return(
-  	<div>
+  return(
+    <div>
       <div className="jumbotron">
         <h1 className="display-4">Ronik Design Quiz</h1>    
         <p className="lead">Prototype by Gary Pang</p>

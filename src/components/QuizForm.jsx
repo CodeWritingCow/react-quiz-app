@@ -4,7 +4,7 @@ import QuestionOption from './QuestionOption.jsx';
 const QuizForm = (props) => {
   let options = props.answers.map((option, idx) => <QuestionOption handleChange={props.handleChange} id={idx} value={option} selectedAnswer={props.selectedAnswer} />);
   
-	return(
+  return(
     <div className="form-check text-left">
       <form onSubmit={props.handleSubmit}>
       {options}
